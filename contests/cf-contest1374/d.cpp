@@ -10,7 +10,7 @@ cin>>tc;
 while(tc--){
     int n,k;
     cin>>n>>k;
-    int maxp=-1;
+    long long int maxp=-1;
     int a[n],d[n];
     for(int i=0;i<n;i++){
         int t;
