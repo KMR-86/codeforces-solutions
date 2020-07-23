@@ -1,0 +1,37 @@
+0 -94
+0 -67
+73 73
+76 76
+156 156
+158 158
+158 67
+158 -23
+158 -90
+158 81
+158 156
+158 157
+158 158
+0 -94
+0 -67
+76 76
+158 158
+158 67
+158 -23
+158 -90
+158 81
+158 156
+158 157
+158 158
+1 1
+2 2
+3 3
+3 -97
+3 2
+4 4
+4 -96
+4 1
+4 2
+4 3
+The nicest part of route 1 is between stops 3 and 7
+The nicest part of route 2 is between stops 8 and 12
+The nicest part of route 3 is between stops 5 and 7
