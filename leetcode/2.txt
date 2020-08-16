@@ -1,0 +1,20 @@
+https://leetcode.com/problems/reverse-words-in-a-string/submissions/
+
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        s=s.strip()
+        l=s.split(" ")
+        #print(l)
+        ans=""
+        for i in range(len(l)-1,-1,-1):
+            ans=ans+l[i]
+            if i!=0 :
+                ans=ans+" "
+        
+        return ans
+    
+        
