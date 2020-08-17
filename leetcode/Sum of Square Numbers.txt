@@ -1,0 +1,12 @@
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        for(int i=0;i<46341;i++){
+            int a=c-i*i;
+            double dt=sqrt(a);
+            double d=(double)ceil(dt);
+            if(dt==d)return true;
+        }
+        return false;
+    }
+};

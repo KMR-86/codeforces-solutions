@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int mySqrt(int x) {
+        int f=0,l=46340;
+        while(true){
+            if(46340*46340<=x)return 46340;
+            int mid=(f+l)/2;
+            //cout<<mid<<endl;
+            if(mid*mid<=x && (mid+1)*(mid+1)>x){
+                return mid;
+            }
+            else{
+                if(mid*mid>x){
+                    l=mid;
+                }
+                else if((mid+1)*(mid+1)<=x){
+                    f=mid;
+                }
+            }
+        }
+    }
+};

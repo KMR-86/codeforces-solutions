@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]=i;
+            
+            
+        }
+        auto itr=mp.find(target);
+        if(itr==mp.end())return -1;
+        
+        return itr->second;
+    }
+};
