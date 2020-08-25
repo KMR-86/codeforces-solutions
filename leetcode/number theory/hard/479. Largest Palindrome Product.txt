@@ -1,0 +1,37 @@
+class Solution {
+public:
+    bool is_pal(long long int n){
+        string s=to_string(n);
+        string r=s;
+        reverse(s.begin(),s.end());
+        if(s==r){
+            return true;
+        }
+        return false;
+    }
+    int largestPalindrome(int n) {
+        if(n==1)return 9;
+        int a=(int)pow(10,n) - 1;
+        int l=(int)pow(10,n-1);
+        long long int ans=0;
+        for(int i=a;i>=l;i--){
+            string s=to_string(i);
+            string r=s;
+            reverse(s.begin(),s.end());
+            string pal=r+s;
+            stringstream ss(pal);
+            long long int x;
+            ss >> x;
+            //cout<<x<<endl;
+            for(int j=a;j>=l;j--){
+                if(x/j>a)break;
+                if(x%j==0){
+                    //cout<<x<<endl;
+                    //cout<<x/j<<endl;
+                    return x%1337;
+                }
+            }
+        }
+            return 0;
+    }
+};
