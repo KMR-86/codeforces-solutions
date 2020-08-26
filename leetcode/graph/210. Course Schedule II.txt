@@ -1,0 +1,75 @@
+class Solution {
+public:
+    vector<vector<int> > g;
+    int flag=0;
+    bool cycle=0;
+    vector<bool>visited;
+    stack<int>ans;
+    void dfs_one_node(int node){
+        visited[node]=1;
+        for(int i=0;i<g[node].size();i++){
+            if(visited[g[node][i]]==0){
+                dfs_one_node(g[node][i]);
+            }
+
+        }
+        //cout<<node<<endl;
+        ans.push(node);
+    }
+    void cycle_dfs(int node){
+        //cout<<"node "<<node<<endl;
+        visited[node]=1;
+        for(int i=0;i<g[node].size();i++){
+            //cout<<"g-node"<<g[node][i]<<endl;
+            //cout<<"vis"<<visited[g[node][i]]<<endl;
+            if(visited[g[node][i]]==0){
+                cycle_dfs(g[node][i]);
+            }
+            else{
+                cycle=1;
+                return;
+                //cout<<"h"<<endl;
+            }
+        }
+        visited[node]=0;
+        
+        
+    }
+    bool is_cycle(){
+        
+        for(int i=0;i<g.size();i++){
+            cycle_dfs(i);
+            if(cycle)return cycle;
+        }
+        return false;
+    }
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int> > v(numCourses);
+        vector<bool>visited_t(numCourses,0);
+        
+        for(int i=0;i<prerequisites.size();i++){
+            v[prerequisites[i][0]].push_back(prerequisites[i][1]);
+        }
+        g=v;
+        visited=visited_t;
+        
+        vector<int>vec;        
+        if(is_cycle())return vec;
+        
+        for(int i=0;i<numCourses;i++){
+            if(visited[i]==0)dfs_one_node(i);
+            
+        }
+        while(!ans.empty()){
+            int a=ans.top();
+            ans.pop();
+            vec.push_back(a);
+        }
+        
+
+        reverse(vec.begin(),vec.end());
+        return vec;
+        
+        
+    }
+};
