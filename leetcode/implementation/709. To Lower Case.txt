@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string toLowerCase(string str) {
+        for(int i=0;i<str.size();i++){
+            char a=str[i];
+            int in=a;
+            if(65<=in && in<=91){
+                in=in+32;
+                a=in;
+                str[i]=a;
+            }
+        }
+    return str;
+    }
+   
+};
