@@ -1,0 +1,46 @@
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int> > ans;
+        sort(nums.begin(),nums.end());
+        int f=0;
+        int l=nums.size()-1;
+        
+
+        int mid=f+1;
+        int i=mid;
+        while(i<l){
+            if(nums[f]+nums[l]+nums[i]>0){
+                l=l-1;
+                cout<<"g";
+
+            }
+            else if((nums[f]+nums[l]+nums[i])<0){
+                cout<<nums[f]<<nums[i]<<nums[l]<<endl;
+                f++;
+                i++;
+                cout<<"l";
+
+            }
+            else{
+                cout<<"e";
+                vector<int>an;
+                an.push_back(nums[f]);
+                an.push_back(nums[i]);
+                an.push_back(nums[l]);
+                ans.push_back(an);
+
+                while(nums[i]==nums[i+1]){
+                    f++;
+                    i++;
+                    if(i==l)break;
+                }
+                
+                i++;
+            }
+            
+        }
+
+        return ans;
+    }
+};
