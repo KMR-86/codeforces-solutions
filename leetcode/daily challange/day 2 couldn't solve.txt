@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        if(nums.size()==0)return false;
+        long long int tt=t;
+        int x=0;
+        vector<int> V(nums.size());
+        iota(V.begin(),V.end(),x++); 
+        sort( V.begin(),V.end(), [&](int i,int j){return nums[i]<nums[j];} );
+        sort(nums.begin(),nums.end());
+
+        for(long long int i=0;i<nums.size()-1;i++){
+            for(long long int j=0;j<nums.size()-1;j++){
+                long long int a=nums[j];
+                long long int b=nums[j+1];
+                long long int dif=a-b;
+                dif=abs(dif);
+                cout<<dif<<tt<<abs(V[j]-V[j+i])<<k<<endl;
+                if(dif<=tt && abs(V[j]-V[j+i])<=k)return true;
+                }
+        }
+        
+
+        return false;
+    }
+};
